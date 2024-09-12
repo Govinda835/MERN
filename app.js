@@ -1,6 +1,7 @@
 require("dotenv").config()
 const express = require("express")
 const { connectToDatabase } = require("./database")
+connectToDatabase()
 const app = express()
 
 app.get("/", (req, res) => {
@@ -15,7 +16,12 @@ app.get("/about", (req, res) => {
     })
 })
 
-connectToDatabase()
+app.post("/blog",(req,res)=>{
+    res.status(200).json({
+        message : "blog api hit successfully..!!!"
+    })
+})
+
 
 app.listen(process.env.PORT, () => {
     console.log("nodeJs project has started....!!!")
