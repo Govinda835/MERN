@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
-function connectToDatabase(){
+async function connectToDatabase(){
     try {
-    const connectionstats = mongoose.connect(`${process.env.MONGODB_URL}`)
+    const connectionstats = await mongoose.connect(`${process.env.MONGODB_URL}`)
     if(connectionstats){
         console.log("database connected successfully...!!!!")
     }
